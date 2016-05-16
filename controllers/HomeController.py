@@ -2,16 +2,16 @@ import Tkinter as Tk
 from views import HomeView
 
 class HomeController():
+
     def __init__(self):
         self.root = Tk.Tk()
         self.view = HomeView.HomeView(self.root)
         self.makeButtonFrame()                
-        self.view.frame.pack()
         
 
     def makeButtonFrame(self):
         # Set up the frame
-        self.view.buttonFrame = Tk.Frame(self.view.frame)
+        self.view.buttonFrame = Tk.Frame(self.view.mainFrame)
         
 
         # Set up the Albums button
@@ -29,32 +29,28 @@ class HomeController():
         self.view.songsButton = Tk.Button(self.view.buttonFrame, text="Songs", command=self.songsButtonCB)
         self.view.songsButton.grid(row=1, column=1, sticky="nsew")
         
-        self.view.buttonFrame.pack() 
+        self.view.buttonFrame.grid(row=1, column=0, sticky="nsew")
 
     def run(self):
         self.root.title("DJ RasPi")
         self.root.deiconify()
         self.root.mainloop()
 
+    # TODO Add real functionality
     def albumsButtonCB(self):
         self.view.status.set("Albums button pressed")
-        self.view.statusLabel.pack()
-        self.view.frame.pack()
 
 
+    # TODO Add real functionality
     def artistsButtonCB(self):
         self.view.status.set("Artists button pressed")
-        self.view.statusLabel.pack()
-        self.view.frame.pack()
 
 
+    # TODO Add real functionality
     def playlistsButtonCB(self):
         self.view.status.set("Playlists button pressed")
-        self.view.statusLabel.pack()
-        self.view.frame.pack()
 
 
+    # TODO Add real functionality
     def songsButtonCB(self):
         self.view.status.set("Songs button pressed")
-        self.view.statusLabel.pack()
-        self.view.frame.pack()
